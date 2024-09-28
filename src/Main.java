@@ -9,6 +9,14 @@ public class Main {
 
         List<String> strings = new ArrayList<>(List.of("один", "два","два", "три", "три", "три"));
         System.out.println(uniqueWords(strings));
+
+        //Количество повторений
+        Set<String> ws = uniqueWords(strings);
+        for (final String elem: ws){
+            if (strings.contains(elem)){
+                System.out.println(Collections.frequency(strings,elem));
+            }
+        }
     }
 
     //Метод ищет и выводит четные и нечетные
@@ -35,7 +43,7 @@ public class Main {
 
     //Вывод уникальных слов
     public static Set<String> uniqueWords(List<String> strings){
-        Set<String> unWrds = new HashSet<>();
+        Set<String> unWrds = new LinkedHashSet<>();
         for (final String word: strings){
             unWrds.add(word);
         }
